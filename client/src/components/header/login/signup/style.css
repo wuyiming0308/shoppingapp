@@ -1,0 +1,37 @@
+.SigninButton {
+  color: #1890ff;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+.SignupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignupForm > div {
+  margin-top: 20px;
+}
+
+.ButtonContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.GnericButton {
+  height: 40px;
+  background-color: blue;
+  font: bold;
+  color: white;
+  font-size: 1rem;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+}
+
+.GnericButton:hover {
+  cursor: pointer;
+}

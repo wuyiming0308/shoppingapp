@@ -1,0 +1,46 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: 1600px;
+  max-width: 90vw;
+  padding: 20px;
+}
+
+.ProductHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.HomePageTitle {
+  font-size: 1.625rem;
+  font: bold;
+  cursor: pointer;
+}
+
+.ContentContainer {
+  width: 100%;
+  min-height: 82vh;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 50px 10px 50px 10px;
+}
+
+.ImgContainer {
+  height: 60%;
+  width: 40%;
+  border: 1px solid black;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.ProductDetailContainer {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1em;
+  height: 3em;
+}

@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "email": "wuyiming@udel.edu",
+      "password": "$2a$10$wKQTDQwMZeyheO5MteSG5u3xdRIh4FAPVcCudu2A2Y9RPIpnXhHsa",
+      "id": 1
+    },
+    {
+      "email": "lnbyk@udel.edu",
+      "password": "$2a$10$PnDunZOnhGxnpjrc1fyd/ePCsq1Rm71o8HKCiyU2VaQEH.u0B.Ija",
+      "id": 2
+    },
+    {
+      "email": "wuyiming@udel.edu1",
+      "password": "$2a$10$B93KqCANrBWP.9vVgVAIBOm2U1NKAF.bj5E8yWYUUvlnxfAryygU6",
+      "id": 3
+    },
+    {
+      "email": "wuyiming0308@gmail.com",
+      "password": "$2a$10$jNNdamSNKU2szHtMz4izz.k1g52RMNc.ZaCKtCwaPrZQZwhP9Q6Em",
+      "id": 4
+    },
+    {
+      "email": "wuyiming0308@gmail111",
+      "password": "$2a$10$px7h2Nktvc3eKf43Am9zxuKH//ILwODLJyFwgPswdFfxL56Y5gWFG",
+      "id": 5
+    },
+    {
+      "email": "wuyiming@udel.eduwuyiming@udel.edu",
+      "password": "$2a$10$2s45P1LApCqnieLHIBNbhuQUEPicP2pALRQtI76Q4PYCcSTfVhrsq",
+      "id": 6
+    },
+    {
+      "email": "11@udel.edu",
+      "password": "$2a$10$aUWC8icQh5c6UG6ZybDFH.n8cSas9uvTe4oTEBBM8e.9YddVvmElK",
+      "id": 7
+    }
+  ]
+}

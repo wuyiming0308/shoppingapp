@@ -1,0 +1,53 @@
+.InputLable {
+  color: gray;
+}
+
+.InputBox,
+.InputButton,
+.TextArea {
+  border: 1px gray solid;
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.InputBox,
+.InputButton {
+  height: 50px;
+}
+
+.TextArea {
+  min-height: 200px;
+}
+
+.TextArea:hover,
+.InputBox:hover {
+  cursor: pointer;
+}
+
+.ErrorMsg {
+  height: 20px;
+  text-align: right;
+  color: red;
+}
+
+.InputContainer {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.InputButton {
+  display: flex;
+  flex-direction: row;
+}
+
+.InputButtonText {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+.InputButton:focus-within {
+  border-color: blue;
+  border-width: 2px;
+}

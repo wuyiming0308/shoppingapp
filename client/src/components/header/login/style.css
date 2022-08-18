@@ -1,0 +1,13 @@
+.CustomerSigninButton {
+  color: whitesmoke;
+  text-decoration: none;
+  background: none;
+  border: none;
+}
+
+.ModalPosition .ant-modal-title {
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1.625rem;
+  font: bold;
+}

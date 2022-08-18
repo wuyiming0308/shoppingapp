@@ -1,0 +1,90 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  min-height: 800px;
+  width: 700px;
+}
+
+.ProductHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ContentContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+  padding: 30px;
+}
+
+.SubButtonContainerTwo,
+.SubButtonContainerOne {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.SubButtonContainerOne > * {
+  width: 49%;
+}
+
+.SubButtonContainerTwo > :nth-child(1) {
+  width: 29%;
+}
+
+.SubButtonContainerTwo > :nth-child(2) {
+  width: 69%;
+}
+
+.ImagePreview {
+  width: 100%;
+  height: 250px;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.ImagePreviewContent {
+  height: 100%;
+  width: 100%;
+}
+
+@media all and (max-width: 700px) {
+  .ProductHeader {
+    justify-content: center;
+  }
+
+  .SubButtonContainerTwo,
+  .SubButtonContainerOne {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .SubButtonContainerOne > * {
+    width: 100%;
+  }
+
+  .SubButtonContainerTwo > :nth-child(1),
+  .SubButtonContainerTwo > :nth-child(2) {
+    width: 100%;
+  }
+
+  .HeaderTitle {
+    width: 50%;
+  }
+  .HeaderButtonContainer {
+    width: 50%;
+    order: 2;
+    align-items: flex-end;
+    padding: 0;
+  }
+}

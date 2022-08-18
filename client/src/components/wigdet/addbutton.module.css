@@ -1,0 +1,26 @@
+.AddButton {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  background-color: blue;
+  font: bold;
+  color: white;
+  font-size: 1rem;
+  width: 100px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.CountNumText {
+  flex: 1;
+  text-align: center;
+  color: white;
+}
+
+.ModifyButton {
+  background-color: blue;
+  border: none;
+  outline: none;
+  flex: 1;
+  border-radius: 5px;
+}

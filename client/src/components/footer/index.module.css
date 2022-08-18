@@ -1,0 +1,43 @@
+.Footer {
+  background-color: black;
+  color: white;
+  align-items: center;
+  display: flex;
+  flex: 1 1;
+  justify-content: space-around;
+  padding: 10px 20px 10px 20px;
+}
+.FooterRights {
+  text-align: justify;
+}
+.FooterLinks {
+  justify-content: center;
+}
+
+.IconContainer {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.FooterInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media all and (max-width: 600px) {
+  .Footer {
+    flex-direction: column;
+  }
+
+  .FooterLinks {
+    order: 1;
+  }
+
+  .FooterRights {
+    order: 3;
+  }
+
+  .FooterInfo {
+    order: 2;
+  }
+}

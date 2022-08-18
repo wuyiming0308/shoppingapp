@@ -1,0 +1,64 @@
+.Header {
+  background-color: black;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.HeaderTitle {
+  flex-grow: 1;
+  color: white;
+  padding: 0px 10px 0px 10px;
+}
+
+.SearchBarContainer {
+  flex-wrap: wrap;
+  display: flex;
+  height: 80px;
+  flex-grow: 2;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 5px 10px 5px;
+}
+
+.SearchBar {
+  flex-grow: 1;
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+  height: 100%;
+}
+
+.HeaderButtonContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+
+  padding: 0 20px 0 20px;
+}
+
+.HeaderButtonContainer > * {
+  margin-right: 20px;
+}
+
+@media all and (max-width: 600px) {
+  .Header {
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+  }
+  .SearchBarContainer {
+    width: 100%;
+    order: 3;
+  }
+
+  .HeaderTitle {
+    width: 50%;
+  }
+  .HeaderButtonContainer {
+    width: 50%;
+    order: 2;
+    align-items: flex-end;
+    padding: 0;
+  }
+}

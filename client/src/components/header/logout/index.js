@@ -1,7 +1,12 @@
-const SignoutButton = ({ handleSignout = () => {} }) => {
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/actions/auth";
+const SignoutButton = () => {
+  const dispatch = useDispatch();
+
   const handleOnClick = () => {
-    handleSignout();
+    dispatch(logout());
   };
+
   return (
     <button className="CustomerSigninButton" onClick={handleOnClick}>
       Sign Out

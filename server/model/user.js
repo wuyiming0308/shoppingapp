@@ -28,7 +28,7 @@ const UserSchema = new Schema(
     role: {
       type: String,
       required: true,
-      default: membershipRole.ROLE_MEMBER,
+      default: membershipRole.ROLE_SELLER,
     },
     resetPasswordToken: { type: String },
     resetPasswordExpires: { type: Date },

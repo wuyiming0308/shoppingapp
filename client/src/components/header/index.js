@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
+import { useSelector } from "react-redux";
 
-import { SignIn } from "./login";
+import { SignIn } from "../login";
 import SignoutButton from "./logout";
 import CartButton from "./cart";
 
 const Header = () => {
-  const [isSignIn, setIsSignIn] = useState(false);
-
+  const { isLoggedIn } = useSelector((state) => state.auth);
   return (
     <div className="Header">
       <h1 className="HeaderTitle">Management Chuwa</h1>
@@ -15,19 +15,7 @@ const Header = () => {
         <input className="SearchBar" placeholder="Search" />
       </div>
       <div className="HeaderButtonContainer">
-        {isSignIn ? (
-          <SignoutButton
-            handleSignout={() => {
-              setIsSignIn(false);
-            }}
-          />
-        ) : (
-          <SignIn
-            handleSignIn={() => {
-              setIsSignIn(true);
-            }}
-          />
-        )}
+        {isLoggedIn ? <SignoutButton /> : <SignIn />}
         <CartButton />
       </div>
     </div>

@@ -1,10 +1,13 @@
 import React from "react";
+import { membershipRole } from "../../data/constants";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./index.css";
 
 import AddButton from "../../components/wigdet/addbutton";
 
 const Item = (props) => {
+  const { user } = useSelector((state) => state.auth);
   const { prod, goToPoductDetail, goToEditPage } = props;
 
   return (
@@ -16,12 +19,14 @@ const Item = (props) => {
       <div className="ProductPrice">{prod.price}</div>
       <div className="ProductButtons">
         <AddButton />
-        <button
-          className="EditProductButton"
-          onClick={() => goToEditPage(prod)}
-        >
-          Edit
-        </button>
+        {user && user.role === membershipRole.ROLE_SELLER ? (
+          <button
+            className="EditProductButton"
+            onClick={() => goToEditPage(prod)}
+          >
+            Edit
+          </button>
+        ) : null}
       </div>
     </div>
   );
@@ -63,7 +68,10 @@ const Content = (props) => {
             <option>last added</option>
             <option>price: high to low</option>
           </select>
-          <button onClick={goToProductPage}>Add Product</button>
+
+          {membershipRole === membershipRole.ROLE_SELLER ? (
+            <button onClick={goToProductPage}>Add Product</button>
+          ) : null}
         </div>
       </div>
       {products.size > 0 && (

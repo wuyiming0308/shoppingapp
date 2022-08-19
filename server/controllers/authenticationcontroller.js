@@ -23,23 +23,23 @@ exports.login = (req, res) => {
   const { email, password } = req.body;
   if (!email) {
     return res
-      .status(401)
+      .status(200)
       .json({ success: false, error: ErrorCode.INVALID_EMAIL });
   }
   if (!password) {
     return res
-      .status(401)
+      .status(200)
       .json({ success: false, error: ErrorCode.INVALID_PASSWORD });
   }
 
   User.findOne({ email: req.body.email }, function (err, user) {
     if (err) {
       return res
-        .status(400)
+        .status(200)
         .json({ success: false, error: ErrorCode.SIGNIN_FAILURE });
     }
     if (!user) {
-      return res.status(400).json({
+      return res.status(200).json({
         success: false,
         error: ErrorCode.SIGNIN_FAILURE,
       });
@@ -48,11 +48,11 @@ exports.login = (req, res) => {
       if (err) {
         console.log(err);
         return res
-          .status(400)
+          .status(200)
           .json({ success: false, error: ErrorCode.SIGNIN_FAILURE });
       }
       if (!isMatch) {
-        return res.status(400).json({
+        return res.status(200).json({
           success: false,
           error: ErrorCode.SIGNIN_FAILURE,
         });
@@ -74,12 +74,12 @@ exports.signup = (req, res) => {
   const { email, password } = req.body;
   if (!email) {
     return res
-      .status(401)
+      .status(200)
       .json({ success: false, error: ErrorCode.INVALID_EMAIL });
   }
   if (!password) {
     return res
-      .status(401)
+      .status(200)
       .json({ success: false, error: ErrorCode.INVALID_PASSWORD });
   }
 
@@ -88,7 +88,7 @@ exports.signup = (req, res) => {
       return next(err);
     }
     if (existingUser) {
-      return res.status(422).send({
+      return res.status(200).send({
         success: false,
         error: "That email address is already in use.",
       });
@@ -102,7 +102,7 @@ exports.signup = (req, res) => {
           return next(err);
         }
         let userInfo = user.toJson();
-        res.status(201).json({
+        res.status(200).json({
           success: true,
           token: "JWT " + generateToken(userInfo),
           user: userInfo,

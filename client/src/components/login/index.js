@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal } from "antd";
-
 import "antd/dist/antd.min.css";
 import "./style.css";
 import ModalContent from "./signincontent";

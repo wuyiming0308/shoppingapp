@@ -1,8 +1,9 @@
 import { ModalState } from "../index";
 import React, { useState } from "react";
-import { signInRequest } from "../../../../data/requestservice";
 import "./style.css";
-import { InputType, Input } from "../../../wigdet/input";
+import { InputType, Input } from "../../wigdet/input";
+import { useDispatch } from "react-redux";
+import { login } from "../../../redux/actions/auth";
 
 const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 
@@ -21,6 +22,8 @@ const ModalContent = ({ showModal = () => {}, handleSignIn = () => {} }) => {
     password: true,
   });
 
+  const dispatch = useDispatch();
+
   const onEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -29,20 +32,21 @@ const ModalContent = ({ showModal = () => {}, handleSignIn = () => {} }) => {
     setPassword(e.target.value);
   };
 
-  const signIn = async () => {
-    const data = await signInRequest({ email, password });
-    if (data && data.success) {
-      showModal(ModalState.NONE);
-      handleSignIn();
-    } else if (data.error === ErrorCode.INVALID_EMAIL) {
-      setFormValidate((e) => ({ ...e, email: data.error }));
+  const handleLogin = () => {
+    dispatch(login(email, password))
+      .then((user) => {})
+      .catch(handleLoginFailure);
+  };
+
+  const handleLoginFailure = (error) => {
+    if (error === ErrorCode.INVALID_EMAIL) {
+      setFormValidate((e) => ({ ...e, email: error }));
     } else {
-      setFormValidate((e) => ({ ...e, password: data.error }));
+      setFormValidate((e) => ({ ...e, password: error }));
     }
   };
 
   const onSubmit = (e) => {
-    e.preventDefault();
     let formValidStateA = Object.assign({ ...formValidate });
     const emailValid = regex.test(email);
     formValidStateA.email =
@@ -52,8 +56,13 @@ const ModalContent = ({ showModal = () => {}, handleSignIn = () => {} }) => {
 
     setFormValidate({ ...formValidStateA });
     if (formValidStateA.email === "" && formValidStateA.password === "") {
-      signIn();
+      handleLogin();
     }
+  };
+
+  const custom = (e) => {
+    setEmail("2wuyiming@udel.edu");
+    setPassword("2wuyiming@udel.edu");
   };
 
   return (
@@ -83,6 +92,7 @@ const ModalContent = ({ showModal = () => {}, handleSignIn = () => {} }) => {
           <button className="GnericButton" onClick={onSubmit}>
             Sign In
           </button>
+          <button onClick={custom}>click me</button>
         </div>
       </div>
 

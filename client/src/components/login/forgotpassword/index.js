@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./style.css";
-import { InputType, Input } from "../../../wigdet/input";
+import { InputType, Input } from "../../wigdet/input";
 const ForgotPasswordComponent = () => {
   const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
   const [email, setEmail] = useState("");

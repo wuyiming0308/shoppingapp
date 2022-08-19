@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ModalState } from "../index";
-import { signUpRequest } from "../../../../data/requestservice";
-
+import { register } from "../../../redux/actions/auth";
+import { InputType, Input } from "../../wigdet/input";
+import { useDispatch } from "react-redux";
 import "./style.css";
-import { InputType, Input } from "../../../wigdet/input";
 
 const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 const ErrorCode = {
@@ -21,6 +21,7 @@ const SignUpComponent = (props) => {
     email: true,
     password: true,
   });
+  const dispatch = useDispatch();
 
   const onEmailChange = (e) => {
     setEmail(e.target.value);
@@ -35,9 +36,9 @@ const SignUpComponent = (props) => {
     let formValidState = Object.assign({ ...formValidate });
     const emailValid = regex.test(email);
     formValidState.email =
-      email && email.length >= 0 && emailValid ? "" : "Invalid password input!";
+      email && email.length >= 0 && emailValid ? "" : ErrorCode.INVALID_EMAIL;
     formValidState.password =
-      password && password.length >= 0 ? "" : "Invalid email input!";
+      password && password.length >= 0 ? "" : ErrorCode.INVALID_PASSWORD;
 
     console.log(formValidState.password);
     setFormValidate({ ...formValidState });
@@ -46,14 +47,19 @@ const SignUpComponent = (props) => {
     }
   };
 
-  const createAccount = async () => {
-    const data = await signUpRequest({ email, password });
-    if (data.user) {
-      showModal(ModalState.NONE);
-    } else if (data === ErrorCode.INVALID_PASSWORD) {
-      setFormValidate((e) => ({ ...e, password: data.error }));
-    } else if (data === ErrorCode.INVALID_EMAIL) {
-      setFormValidate((e) => ({ ...e, email: data.error }));
+  const createAccount = () => {
+    dispatch(register(email, password))
+      .then(() => {})
+      .catch(handleSignUpError);
+  };
+
+  const handleSignUpError = (error) => {
+    console.log(error);
+    if (error === ErrorCode.INVALID_PASSWORD) {
+      setFormValidate((e) => ({ ...e, password: error }));
+    } else {
+      console.log(1);
+      setFormValidate((e) => ({ ...e, email: error }));
     }
   };
 

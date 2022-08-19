@@ -3,16 +3,17 @@ import styles from "./productpage.module.css";
 import { useNavigate } from "react-router-dom";
 
 import { Input, InputType, InputButton } from "../../components/wigdet/input";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/actions/products";
 
-const ProductPage = (props) => {
-  const { addProduct } = props;
+const ProductPage = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [currentUrl, setCurrentUrl] = useState("");
 
   const goToHomePage = async () => {
-    await addProduct(product);
+    dispatch(addProduct(product));
     navigate("/");
   };
 

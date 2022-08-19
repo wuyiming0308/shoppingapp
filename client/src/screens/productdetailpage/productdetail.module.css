@@ -1,7 +1,8 @@
 .Container {
   display: flex;
   flex-direction: column;
-  height: 700px;
+  min-height: 700px;
+  height: auto;
   width: 1600px;
   max-width: 90vw;
   padding: 20px;
@@ -22,7 +23,7 @@
 
 .ContentContainer {
   width: 100%;
-  min-height: 82vh;
+  height: 82vh;
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -30,17 +31,71 @@
 }
 
 .ImgContainer {
-  height: 60%;
-  width: 40%;
+  flex: 2;
+  max-width: 40%;
   border: 1px solid black;
   object-fit: contain;
   margin-right: 20px;
 }
 
 .ProductDetailContainer {
-  height: 800px;
+  flex: 3;
+  max-width: 60%;
   display: flex;
   flex-direction: column;
   line-height: 1em;
-  height: 3em;
+}
+
+.ProductDetailContainer > * {
+  margin-top: 10px;
+}
+
+.description {
+  height: 60%;
+  border: 1px solid gainsboro;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.ProductButtons {
+  display: flex;
+}
+
+@media all and (max-width: 700px) {
+  .ContentContainer {
+    width: 100%;
+    min-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px 10px 10px;
+  }
+
+  .ImgContainer {
+    min-height: 300px;
+    max-height: 300px;
+    max-width: 100%;
+    width: 100%;
+    border: 1px solid black;
+    object-fit: contain;
+    margin-right: 20px;
+  }
+
+  .description {
+    min-height: 150px;
+    max-height: 150px;
+    flex: 1;
+    border: 1px solid gainsboro;
+    padding: 10px;
+  }
+  .ProductButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ProductDetailContainer {
+    width: 100%;
+    max-width: 100%;
+  }
 }

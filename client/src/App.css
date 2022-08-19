@@ -17,3 +17,7 @@
   justify-content: center;
   min-height: 86vh;
 }
+
+button {
+  cursor: pointer;
+}

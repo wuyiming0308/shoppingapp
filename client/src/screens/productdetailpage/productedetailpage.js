@@ -34,10 +34,16 @@ const ProductDetailPage = () => {
             <div className={styles.ProductDetailContainer}>
               <label>{product.category.name}</label>
               <h1>{product.name}</h1>
-              <h2>{product.price}</h2>
-              <p>{product.description}</p>
+              <h2>${product.price}</h2>
+              <span className={styles.description}>
+                <p>
+                  {product.description
+                    ? product.description
+                    : "There is no description for this product"}{" "}
+                </p>
+              </span>
               <br />
-              <div className="ProductButtons">
+              <div className={styles.ProductButtons}>
                 <AddButton />
                 <button
                   className="EditProductButton"

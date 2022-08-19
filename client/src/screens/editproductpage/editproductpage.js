@@ -31,7 +31,7 @@ const EditProductPage = () => {
   };
 
   const changeCategory = (event) => {
-    setProduct((e) => ({ ...e, category: event.target.value }));
+    setProduct((e) => ({ ...e, category: { name: event.target.value } }));
   };
 
   const changeInStock = (event) => {

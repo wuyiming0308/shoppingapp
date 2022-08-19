@@ -6,4 +6,10 @@ const AuthType = {
   LOGOUT: "LOGOUT",
 };
 
-export { AuthType };
+const ProductType = {
+  ADD_PRODUCT: "ADD_PRODUCT",
+  EDIT_PRODUCT: "EDIT_PRODUCT",
+  GET_PRODUCTS: "GET_PRODUCTS",
+};
+
+export { AuthType, ProductType };

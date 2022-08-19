@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import styles from "./editproductpage.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { editProduct } from "../../redux/actions/products";
+
 import { Input, InputType, InputButton } from "../../components/wigdet/input";
 
-const EditProductPage = (props) => {
-  const { editProduct } = props;
+const EditProductPage = () => {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -15,7 +19,7 @@ const EditProductPage = (props) => {
   const [currentUrl, setCurrentUrl] = useState("prod.imageUrl");
 
   const goToHomePage = async () => {
-    await editProduct(product);
+    dispatch(editProduct(product));
     navigate("/");
   };
   const changeName = (event) => {
@@ -27,7 +31,7 @@ const EditProductPage = (props) => {
   };
 
   const changeCategory = (event) => {
-    setProduct((e) => ({ ...e, category: event.target.value }));
+    setProduct((e) => ({ ...e, category: { name: event.target.value } }));
   };
 
   const changeInStock = (event) => {
@@ -79,7 +83,7 @@ const EditProductPage = (props) => {
               value={product.category.name}
               onChange={changeCategory}
               inputType={InputType.INPUT}
-            />{" "}
+            />
             <Input
               htmlFor="input"
               label="Price"
@@ -117,7 +121,7 @@ const EditProductPage = (props) => {
             />
           </div>
           <div>
-            <button onClick={goToHomePage}>Add Product</button>
+            <button onClick={goToHomePage}>Edit Product</button>
           </div>
         </div>
       </div>

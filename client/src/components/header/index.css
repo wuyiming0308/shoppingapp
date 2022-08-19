@@ -11,6 +11,10 @@
   padding: 0px 10px 0px 10px;
 }
 
+.HeaderTitle:hover {
+  cursor: pointer;
+}
+
 .SearchBarContainer {
   flex-wrap: wrap;
   display: flex;

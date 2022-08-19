@@ -32,8 +32,10 @@ const Item = (props) => {
   );
 };
 
-const Content = (props) => {
-  const { products } = props;
+const Content = () => {
+  const { user } = useSelector((state) => state.auth);
+  const { products } = useSelector((state) => state.products);
+
   const navigate = useNavigate();
   const goToProductPage = () => {
     navigate("/create-product");
@@ -44,17 +46,17 @@ const Content = (props) => {
   const goToEditPage = (prod) => {
     navigate("/edit-product", { state: { product: prod } });
   };
-  const renderItemList = (p) => {
-    const values = p.values();
-    return [...values].map((v, index) => (
+  const renderItemList = () => {
+    return Object.values(products).map((v) => (
       <Item
         prod={v}
         goToPoductDetail={goToPoductDetail}
         goToEditPage={goToEditPage}
-        key={index}
+        key={v._id}
       />
     ));
   };
+
   return (
     <div className="ProductContainer">
       <div className="ProductHeader">
@@ -69,14 +71,12 @@ const Content = (props) => {
             <option>price: high to low</option>
           </select>
 
-          {membershipRole === membershipRole.ROLE_SELLER ? (
+          {user && user.role === membershipRole.ROLE_SELLER ? (
             <button onClick={goToProductPage}>Add Product</button>
           ) : null}
         </div>
       </div>
-      {products.size > 0 && (
-        <div className="ItemsContainer">{renderItemList(products)}</div>
-      )}
+      {<div className="ItemsContainer">{renderItemList()}</div>}
     </div>
   );
 };

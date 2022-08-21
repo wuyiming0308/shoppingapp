@@ -1,14 +1,17 @@
-import { useState } from "react";
 import styles from "./addbutton.module.css";
 
-const AddButton = () => {
-  const [count, setCount] = useState(0);
+import { useDispatch, useSelector } from "react-redux";
+import { addUserCart, editUserCart } from "../../redux/actions/cart";
+const AddButton = (props) => {
+  const count =
+    useSelector((state) => state.cart.products[props.productId]) ?? 0;
 
+  const dispatch = useDispatch();
   const increase = () => {
-    setCount(count + 1);
+    dispatch(addUserCart(props.productId));
   };
   const decrease = () => {
-    setCount(count - 1);
+    dispatch(editUserCart(props.productId));
   };
   return (
     <>
@@ -17,7 +20,7 @@ const AddButton = () => {
           <button className={styles.ModifyButton} onClick={decrease}>
             -
           </button>
-          <h3 className={styles.CountNumText}>{count}</h3>
+          <span className={styles.CountNumText}>{count}</span>
           <button className={styles.ModifyButton} onClick={increase}>
             +
           </button>

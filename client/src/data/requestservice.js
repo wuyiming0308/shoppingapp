@@ -54,10 +54,49 @@ const editProductRequest = async (product) => {
   return data;
 };
 
+/** Cart relater API */
+const getUserCartRequest = async () => {
+  const response = await fetch(`${url}/cart?userId=${getUserId()}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
+const addUserCartRequest = async (productId) => {
+  const response = await fetch(`${url}/cart/addproduct`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ productId: productId, userId: getUserId() }),
+  });
+  const data = await response.json();
+  return data;
+};
+
+const editUserCartRequest = async (productId) => {
+  const response = await fetch(`${url}/cart/removeproduct`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ productId: productId, userId: getUserId() }),
+  });
+  const data = await response.json();
+  return data;
+};
+
+const getUserId = () => {
+  const id = JSON.parse(localStorage.getItem("user"))._id;
+  return id;
+};
+
 export {
   addProductRequest,
+  addUserCartRequest,
   editProductRequest,
+  editUserCartRequest,
   getProductsRequest,
+  getUserCartRequest,
   loginRequest,
   registerRequest,
 };

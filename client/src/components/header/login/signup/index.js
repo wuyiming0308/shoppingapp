@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ModalState } from "../index";
-import { register } from "../../../redux/actions/auth";
-import { InputType, Input } from "../../wigdet/input";
+import { register } from "../../../../redux/actions/auth";
+import { InputType, Input } from "../../../wigdet/input";
 import { useDispatch } from "react-redux";
 import "./style.css";
 

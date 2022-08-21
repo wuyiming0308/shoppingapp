@@ -18,7 +18,7 @@ const Item = (props) => {
       <div className="ProductName">{prod.name}</div>
       <div className="ProductPrice">{prod.price}</div>
       <div className="ProductButtons">
-        <AddButton />
+        <AddButton productId={prod["_id"]} />
         {user && user.role === membershipRole.ROLE_SELLER ? (
           <button
             className="EditProductButton"

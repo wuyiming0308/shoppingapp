@@ -12,4 +12,10 @@ const ProductType = {
   GET_PRODUCTS: "GET_PRODUCTS",
 };
 
-export { AuthType, ProductType };
+const CartType = {
+  GET_USERCART: "GET_USERCART",
+  ADD_CART: "ADD_CART",
+  EDIT_CART: "EDIT_CART",
+};
+
+export { AuthType, ProductType, CartType };

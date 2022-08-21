@@ -1,9 +1,9 @@
 import { ModalState } from "../index";
 import React, { useState } from "react";
 import "./style.css";
-import { InputType, Input } from "../../wigdet/input";
+import { InputType, Input } from "../../../wigdet/input";
 import { useDispatch } from "react-redux";
-import { login } from "../../../redux/actions/auth";
+import { login } from "../../../../redux/actions/auth";
 
 const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 

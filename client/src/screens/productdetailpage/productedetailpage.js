@@ -44,7 +44,7 @@ const ProductDetailPage = () => {
               </span>
               <br />
               <div className={styles.ProductButtons}>
-                <AddButton />
+                <AddButton productId={product["_id"]} />
                 <button
                   className="EditProductButton"
                   onClick={() => {

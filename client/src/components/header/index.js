@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import { useSelector } from "react-redux";
 
-import { SignIn } from "../login";
+import { SignIn } from "../header/login";
 import SignoutButton from "./logout";
 import CartButton from "./cart";
 import { useNavigate } from "react-router-dom";

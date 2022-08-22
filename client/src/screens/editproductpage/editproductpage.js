@@ -120,8 +120,10 @@ const EditProductPage = () => {
               src={currentUrl}
             />
           </div>
-          <div>
-            <button onClick={goToHomePage}>Edit Product</button>
+          <div className={styles.EditProductButtonContainer}>
+            <button className={styles.EditProductButton} onClick={goToHomePage}>
+              Edit Product
+            </button>
           </div>
         </div>
       </div>

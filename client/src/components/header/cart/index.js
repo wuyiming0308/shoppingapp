@@ -3,7 +3,7 @@ import "./style.css";
 import { Avatar, Badge, Drawer } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
-import { getUserCart } from "../../../redux/actions/cart";
+import { getUserCart, cleanUserCart } from "../../../redux/actions/cart";
 import CartContent from "./carcontent";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,7 +11,7 @@ const CartButton = () => {
   const [visible, setVisible] = useState(false);
 
   const dispatch = useDispatch();
-  const { count } = useSelector((state) => state.cart);
+  const { count, products } = useSelector((state) => state.cart);
   const { isLoggedIn } = useSelector((state) => state.auth);
 
   const showDrawer = () => {
@@ -21,6 +21,8 @@ const CartButton = () => {
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(getUserCart);
+    } else {
+      dispatch(cleanUserCart);
     }
   }, [dispatch, isLoggedIn]);
 
@@ -45,10 +47,10 @@ const CartButton = () => {
         onClose={() => {
           setVisible(false);
         }}
-        width={500}
+        style={{ width: "200", maxWidth: "100%" }}
         visible={visible}
       >
-        <CartContent />
+        <CartContent products={products} />
       </Drawer>
     </div>
   );

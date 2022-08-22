@@ -1,0 +1,13 @@
+.ErrorBoundaryCountainer {
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+}
+
+.ErrorMassage,
+.NotificationMassage {
+  padding: 1px;
+}
+.NotificationMassage {
+  margin-left: 45px;
+}

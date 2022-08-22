@@ -115,8 +115,10 @@ const ProductPage = () => {
               src={currentUrl}
             />
           </div>
-          <div>
-            <button onClick={goToHomePage}>Add Product</button>
+          <div className={styles.AddProductButtonContainer}>
+            <button className={styles.AddProductButton} onClick={goToHomePage}>
+              Add Product
+            </button>
           </div>
         </div>
       </div>

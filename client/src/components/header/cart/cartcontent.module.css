@@ -83,11 +83,16 @@
   align-items: center;
 }
 
+.ItermList {
+  max-height: 650px;
+  overflow: scroll;
+}
+
 .DiscountCode {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding-right: 30px;
+  justify-content: space-around;
+  padding-right: 5px;
 }
 
 .CodeInput {
@@ -99,7 +104,7 @@
 }
 .ApplyButton {
   height: 30px;
-  background-color: lightgray;
+  background-color: blue;
   color: white;
   font-size: 1rem;
   width: 70px;
@@ -128,5 +133,11 @@
   justify-content: center;
   width: 300px;
   border-radius: 5px;
-  margin: 50px;
+  margin: 20px;
+}
+
+@media all and (max-width: 600px) {
+  .ItermList {
+    height: 70%;
+  }
 }

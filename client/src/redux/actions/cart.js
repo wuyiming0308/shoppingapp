@@ -36,4 +36,10 @@ const editUserCart = (productId) => async (dispatch) => {
     });
   }
 };
-export { getUserCart, addUserCart, editUserCart };
+
+const cleanUserCart = (dispatch) => {
+  dispatch({
+    type: CartType.CLEANUSER_CART,
+  });
+};
+export { getUserCart, addUserCart, editUserCart, cleanUserCart };

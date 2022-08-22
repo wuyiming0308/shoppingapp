@@ -16,6 +16,7 @@ const CartType = {
   GET_USERCART: "GET_USERCART",
   ADD_CART: "ADD_CART",
   EDIT_CART: "EDIT_CART",
+  CLEANUSER_CART: "CLEANUSER_CART",
 };
 
 export { AuthType, ProductType, CartType };

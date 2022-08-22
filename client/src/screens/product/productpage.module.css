@@ -45,7 +45,7 @@
 .ImagePreview {
   width: 100%;
   height: 250px;
-  background-color: green;
+  background-color: lightgray;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +56,21 @@
 .ImagePreviewContent {
   height: 100%;
   width: 100%;
+}
+
+.AddProductButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.AddProductButton {
+  height: 40px;
+  background-color: blue;
+  color: white;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 @media all and (max-width: 700px) {

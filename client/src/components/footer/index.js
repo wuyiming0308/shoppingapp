@@ -1,4 +1,5 @@
 import React from "react";
+
 import styles from "./index.module.css";
 import { YouTube, Twitter, Facebook } from "../Icons/icons";
 const Footer = () => {

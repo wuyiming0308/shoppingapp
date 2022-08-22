@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { membershipRole } from "../../data/constants";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Pagination } from "antd";
+
 import "./index.css";
 
 import AddButton from "../../components/wigdet/addbutton";
+import BuggyCounter from "../../components/errorBoundaries/BuggyCounter";
+import MyErrorBoundary from "../../components/errorBoundaries/MyErrorBoundary";
+
+const pageSize = 12;
 
 const Item = (props) => {
   const { user } = useSelector((state) => state.auth);
@@ -34,7 +40,11 @@ const Item = (props) => {
 
 const Content = () => {
   const { user } = useSelector((state) => state.auth);
-  const { products } = useSelector((state) => state.products);
+  const [currentPage, setCurretPage] = useState(0);
+
+  const products = useSelector((state) =>
+    Object.values(state.products.products)
+  );
 
   const navigate = useNavigate();
   const goToProductPage = () => {
@@ -47,37 +57,44 @@ const Content = () => {
     navigate("/edit-product", { state: { product: prod } });
   };
   const renderItemList = () => {
-    return Object.values(products).map((v) => (
-      <Item
-        prod={v}
-        goToPoductDetail={goToPoductDetail}
-        goToEditPage={goToEditPage}
-        key={v._id}
-      />
-    ));
+    return products
+      .slice(currentPage * pageSize, currentPage * pageSize + pageSize)
+      .map((v) => (
+        <Item
+          prod={v}
+          goToPoductDetail={goToPoductDetail}
+          goToEditPage={goToEditPage}
+          key={v._id}
+        />
+      ));
   };
 
   return (
-    <div className="ProductContainer">
-      <div className="ProductHeader">
-        <span>
-          {" "}
-          <h1 className="HomePageTitle">Products</h1>
-        </span>
-        <div>
-          <select>
-            <option>Price:low to high</option>
-            <option>last added</option>
-            <option>price: high to low</option>
-          </select>
-
-          {user && user.role === membershipRole.ROLE_SELLER ? (
-            <button onClick={goToProductPage}>Add Product</button>
-          ) : null}
+    <MyErrorBoundary>
+      <div className="ProductContainer">
+        <div className="ProductHeader">
+          <span>
+            <BuggyCounter />
+          </span>
+          <div>
+            {user && user.role === membershipRole.ROLE_SELLER ? (
+              <button className="AddNewProductButton" onClick={goToProductPage}>
+                Add Product
+              </button>
+            ) : null}
+          </div>
+        </div>
+        {<div className="ItemsContainer">{renderItemList()}</div>}
+        <div className="PaginationContain">
+          <Pagination
+            defaultCurrent={1}
+            pageSize={pageSize}
+            total={products.length}
+            onChange={(e) => setCurretPage(e - 1)}
+          />
         </div>
       </div>
-      {<div className="ItemsContainer">{renderItemList()}</div>}
-    </div>
+    </MyErrorBoundary>
   );
 };
 

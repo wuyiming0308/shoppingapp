@@ -24,12 +24,19 @@
 }
 
 .ItemsContainer {
-  height: 100%;
+  height: 700px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(6, 16%);
   background-color: white;
   padding: 20px;
+  justify-content: center;
+}
+
+.PaginationContain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ProductItem {
@@ -66,6 +73,16 @@
   height: 100%;
 }
 
+.AddNewProductButton {
+  height: 40px;
+  background-color: blue;
+  color: white;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
 .ProductButtons {
   display: flex;
   flex-wrap: wrap;
@@ -93,4 +110,44 @@
   border: none;
   border-radius: 5px;
   margin: 10px;
+}
+
+@media all and (max-width: 1600px) {
+  .ItemsContainer {
+    height: 100%;
+  }
+
+  .ItemsContainer {
+    grid-template-columns: repeat(4, 25%);
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .ItemsContainer {
+    height: 100%;
+  }
+
+  .ItemsContainer {
+    grid-template-columns: repeat(3, 33%);
+  }
+}
+
+@media all and (max-width: 800px) {
+  .ItemsContainer {
+    height: 100%;
+  }
+
+  .ItemsContainer {
+    grid-template-columns: repeat(2, 48%);
+  }
+}
+
+@media all and (max-width: 500px) {
+  .ItemsContainer {
+    height: 100%;
+  }
+
+  .ItemsContainer {
+    grid-template-columns: repeat(1, 90%);
+  }
 }

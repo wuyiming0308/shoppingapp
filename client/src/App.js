@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 import { Layout } from "antd";
 import "./App.css";
 import { useDispatch } from "react-redux";
@@ -17,7 +18,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getProducts);
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

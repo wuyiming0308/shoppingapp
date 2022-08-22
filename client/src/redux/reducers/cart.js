@@ -22,6 +22,10 @@ const cartReducer = produce((state = intialState, { type, payload }) => {
         (state.products[payload.productId] ?? 0) - 1;
       state.count -= 1;
       return state;
+    case CartType.CLEANUSER_CART:
+      state.products = {};
+      state.count = 0;
+      return state;
     default:
       return state;
   }
